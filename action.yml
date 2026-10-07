@@ -1,0 +1,21 @@
+name: Upload test coverage
+description: Upload a coverage report produced by the workflow
+author: covlane
+inputs:
+  path:
+    description: Coverage file or directory to upload
+    required: false
+    default: coverage
+  name:
+    description: Artifact name
+    required: false
+    default: coverage
+runs:
+  using: composite
+  steps:
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.name }}
+        path: ${{ inputs.path }}
+        if-no-files-found: ignore
