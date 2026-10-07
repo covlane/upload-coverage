@@ -6,4 +6,4 @@ Uploads a coverage report from the workflow as a build artifact.
 - uses: covlane/upload-coverage@v3
 ```
 
-If `coverage` is missing, the step is skipped.
+If `coverage` is missing, the artifact step is skipped.
